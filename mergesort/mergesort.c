@@ -1,25 +1,14 @@
 #include "mergesort.h"
 #include <stdlib.h>
 
-void mergesort(int, int*) {  
-
-	return;
-}
-
-void mergeSortRange (int values[], int startIndex, int endIndex) {
-	bool needToSort = needsSorting(rangeSize);
-	if (needSort) {
-		int midPoint = (startIndex + endIndex)/2;
-		mergeSortRange(values, startIndex, endIndex);
-		mergeSortRange(values, midPoint, endIndex);
-		mergeRanges(values, startIndex, midPoint, endIndex);
-	}
-}
+bool needsSorting(int rangeSize);
+void mergeSortRange(int values[], int startIndex, int endIndex);
+void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIndex);
 
 void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIndex) {
 	int rangeSize = endIndex - startIndex;
 	int* destination;
-	destination = (int*) malloc(size + 1, sizeof(int));
+	destination = (int*) calloc(size + 1, sizeof(int));
 	int firstIndex = startIndex;
 	int secondIndex = midPoint;
 	int copyIndex = 0;
@@ -61,4 +50,17 @@ bool needsSorting (int rangeSize) {
 	}
 }
 
+void mergeSortRange (int values[], int startIndex, int endIndex) {
+	int rangeSize = endIndex - startIndex;
+	bool needToSort = needsSorting(rangeSize);
+	if (needToSort) {
+		int midPoint = (startIndex + endIndex)/2;
+		mergeSortRange(values, startIndex, midPoint);
+		mergeSortRange(values, midPoint, endIndex);
+		mergeRanges(values, rangeSize, startIndex, midPoint, endIndex);
+	}
+}
 
+void mergesort(int size, int values[]) {  
+	mergeSortRange(values, 0, size);
+}
