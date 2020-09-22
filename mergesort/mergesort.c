@@ -6,6 +6,16 @@ void mergesort(int, int*) {
 	return;
 }
 
+void mergeSortRange (int values[], int startIndex, int endIndex) {
+	bool needToSort = needsSorting(rangeSize);
+	if (needSort == true) {
+		int midPoint = (startIndex + endIndex)/2;
+		mergeSortRange(values, startIndex, endIndex);
+		mergeSortRange(values, midPoint, endIndex);
+		mergeRanges(values, startIndex, midPoint, endIndex);
+	}
+}
+
 void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIndex) {
 	int rangeSize = endIndex - startIndex;
 	int* destination;
@@ -50,3 +60,5 @@ bool needsSorting (int rangeSize) {
 		return false;
 	}
 }
+
+
