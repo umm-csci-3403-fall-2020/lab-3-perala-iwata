@@ -43,3 +43,10 @@ void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIn
 	free(destination);
 }
 
+bool needsSorting (int rangeSize) {
+	if (rangeSize >= 2) {
+		return  true;
+	}else{
+		return false;
+	}
+}
