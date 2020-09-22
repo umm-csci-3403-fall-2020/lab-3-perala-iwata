@@ -1,5 +1,6 @@
 #include "array_merge.h"
-
+#include "../mergesort/mergesort.h"
+#include "../mergesort/mergesort.c"
 
 bool needsSorting(int rangeSize);
 void mergeSortRange(int values[], int startIndex, int endIndex);
