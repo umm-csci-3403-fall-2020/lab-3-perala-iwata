@@ -8,7 +8,7 @@ void mergesort(int, int*) {
 
 void mergeSortRange (int values[], int startIndex, int endIndex) {
 	bool needToSort = needsSorting(rangeSize);
-	if (needSort == true) {
+	if (needSort) {
 		int midPoint = (startIndex + endIndex)/2;
 		mergeSortRange(values, startIndex, endIndex);
 		mergeSortRange(values, midPoint, endIndex);
