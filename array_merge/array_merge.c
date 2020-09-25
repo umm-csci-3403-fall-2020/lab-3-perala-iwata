@@ -36,7 +36,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	// Iterator for the while loop
 	int j = 0;
 
-	while (j < combArray) {
+	while (j < arrSize) {
 		if(altArray[i] != altArray[i - 1]){
 			unique++;
 		}
