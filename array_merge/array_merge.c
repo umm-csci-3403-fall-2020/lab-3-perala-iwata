@@ -10,7 +10,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	
 	// While loop to add the sum of elements in the original arrays
 	for (int i = 0; i < num_arrays; i++) {
-		combArray = combArray + size[i];
+		combArray = combArray + sizes[i];
 	}
 	
 	// Array to hold the unique values of the subarrays
