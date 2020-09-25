@@ -1,5 +1,6 @@
 #include "array_merge.h"
 #include "../mergesort/mergesort.h"
+#include "../mergesort/mergesort.c"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -33,10 +34,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	// Counter for unique values
 	int unique = 0;
 
-	// Iterator for the while loop
-	int j = 0;
-
-	while (j < arrSize) {
+	for (int i = 0; i < arrSize; i++) {
 		if(altArray[i] != altArray[i - 1]){
 			unique++;
 		}
@@ -48,9 +46,9 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	// Adding the value of unique numbers to the first position in the array
 	finalArray[0] = unique;
 
-	for(int k = 1; i < combArray; i++) {
+	for(int i = 1; i < arrSize; i++) {
 		if (combArray[i] != combArray[i-1]){
-			finalArray[k] = altArray[k];
+			finalArray[i] = altArray[i];
 		}
 	}
 	free(combArray);
