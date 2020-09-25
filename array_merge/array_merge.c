@@ -7,14 +7,16 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	
 	// Variable used to see how many total elements there are in all sub-arrays
 	int* combArray;
+
+	int arrSize;
 	
 	// While loop to add the sum of elements in the original arrays
 	for (int i = 0; i < num_arrays; i++) {
-		combArray = combArray + sizes[i];
+		arrSize = arrSize + sizes[i];
 	}
 	
 	// Array to hold the unique values of the subarrays
-	int *altArray = (int*) calloc(combArray, sizeof(int));
+	int *altArray = (int*) calloc(arrSize, sizeof(int));
 	
 	int index = 0;
 
@@ -26,7 +28,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	}
 
 	// Sorting the array to find unique numbers
-	mergesort(combArray, altArray);
+	mergesort(arrSize, altArray);
 	
 	// Counter for unique values
 	int unique = 0;
