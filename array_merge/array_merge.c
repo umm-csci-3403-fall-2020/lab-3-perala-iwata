@@ -2,17 +2,15 @@
 #include "../mergesort/mergesort.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
 
 int* array_merge(int num_arrays, int* sizes, int** values) {
 	
 	// Variable used to see how many total elements there are in all sub-arrays
-	int* combArray
+	int* combArray;
 	
 	// While loop to add the sum of elements in the original arrays
-	for (int i = 0; i < num_arrays; i++){
+	for (int i = 0; i < num_arrays; i++) {
 		combArray = combArray + size[i];
-		i++;
 	}
 	
 	// Array to hold the unique values of the subarrays
