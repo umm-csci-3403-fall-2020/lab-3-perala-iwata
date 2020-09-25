@@ -7,9 +7,7 @@
 int* array_merge(int num_arrays, int* sizes, int** values) {
 	
 	// Variable used to see how many total elements there are in all sub-arrays
-	int* combArray;
-
-	int arrSize;
+	int arrSize = 0;
 	
 	// While loop to add the sum of elements in the original arrays
 	for (int i = 0; i < num_arrays; i++) {
@@ -23,7 +21,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 
 	for (int i = 0; i < num_arrays; i++){
 		for(int j = 0; j < sizes[i]; j++){
-			combArray[index] = values[j][i];
+			altArray[index] = values[i][j];
 			index++;
 		}
 	}
@@ -47,10 +45,9 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	finalArray[0] = unique;
 
 	for(int i = 1; i < arrSize; i++) {
-		if (combArray[i] != combArray[i-1]){
+		if (altArray[i] != altArray[i-1]){
 			finalArray[i] = altArray[i];
 		}
 	}
-	free(combArray);
   return finalArray;
 }
