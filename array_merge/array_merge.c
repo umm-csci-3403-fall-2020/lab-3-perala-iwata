@@ -32,6 +32,12 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	// Counter for unique values
 	int unique = 0;
 
+	if (num_arrays != 0) {
+		unique = 1;
+	}else{
+		unique = 0;
+	}
+
 	for (int i = 0; i < arrSize; i++) {
 		if(altArray[i] != altArray[i - 1]){
 			unique++;
