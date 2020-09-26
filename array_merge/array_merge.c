@@ -44,15 +44,22 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 		}
 	}
 
-	// Final array to hold the unique values as well as the count of unique values
+	index = 2;
+	
 	int* finalArray = (int*) calloc(unique+1, sizeof(int));
+
+	if (unique != 0) {
+		finalArray[1] = altArray[0];
+	}
+	// Final array to hold the unique values as well as the count of unique values
 
 	// Adding the value of unique numbers to the first position in the array
 	finalArray[0] = unique;
 
 	for(int i = 1; i < arrSize; i++) {
 		if (altArray[i] != altArray[i-1]){
-			finalArray[i] = altArray[i];
+			finalArray[index] = altArray[i];
+			index++;
 		}
 	}
   free(altArray);
