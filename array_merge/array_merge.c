@@ -55,5 +55,6 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 			finalArray[i] = altArray[i];
 		}
 	}
+  free(altArray);
   return finalArray;
 }
