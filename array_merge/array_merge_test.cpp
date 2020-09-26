@@ -75,6 +75,7 @@ TEST(ArrayMerge, Handle_multiple_copies_of_longer_list_different_orders) {
   free(result);
 }
 
+// I worked with (Cookie Vang on this piece and the next block Audrey was a part a piece of my method. They helped me debug mmy code).
 TEST(ArrayMerge, Handle_different_sizes) {
   int num_arrays = 11;
   int sizes[num_arrays];
@@ -90,10 +91,12 @@ TEST(ArrayMerge, Handle_different_sizes) {
       a[i][j] = j;
     }
   }
-
   result = array_merge(num_arrays, sizes, a);
   arrays_match(11, result, expected);
   free(result);
+  for (i = 0; i < num_arrays; i++) {
+		free(a[i]);
+	}
 }
 
 TEST(ArrayMerge, Handle_different_sizes_reversed) {
@@ -111,10 +114,13 @@ TEST(ArrayMerge, Handle_different_sizes_reversed) {
       a[i][j] = j;
     }
   }
-
+  
   result = array_merge(num_arrays, sizes, a);
   arrays_match(11, result, expected);
   free(result);
+  for ( i = 0; i < num_arrays; i++) {
+		free(a[i]);
+	}
 }
 
 int main(int argc, char* argv[]) {

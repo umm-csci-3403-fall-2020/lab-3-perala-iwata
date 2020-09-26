@@ -3,6 +3,7 @@
 #include "../mergesort/mergesort.c"
 #include <stdlib.h>
 #include <stdio.h>
+#include <cstring>
 
 int* array_merge(int num_arrays, int* sizes, int** values) {
 	
@@ -30,7 +31,7 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 	mergesort(arrSize, altArray);
 	
 	// Counter for unique values
-	int unique = 0;
+	int unique;
 
 	if (num_arrays != 0) {
 		unique = 1;
@@ -38,12 +39,12 @@ int* array_merge(int num_arrays, int* sizes, int** values) {
 		unique = 0;
 	}
 
-	for (int i = 0; i < arrSize; i++) {
+	for (int i = 1; i < arrSize; i++) {
 		if(altArray[i] != altArray[i - 1]){
 			unique++;
 		}
 	}
-
+	// Huge credit to Cookie Vang and by association Audrey for helping us debug this.
 	index = 2;
 	
 	int* finalArray = (int*) calloc(unique+1, sizeof(int));
